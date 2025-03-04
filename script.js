@@ -6,12 +6,24 @@ async function fetchSheetData() {
         const response = await fetch(url);
         const data = await response.json();
 
+        // Sortera datan efter antal kilometer i fallande ordning
+        data.sort((a, b) => {
+            let kmA = parseFloat(a.Kilometer.replace(",", ".") || 0); // Konvertera till flyttal
+            let kmB = parseFloat(b.Kilometer.replace(",", ".") || 0); // Konvertera till flyttal
+
+            if (isNaN(kmA)) kmA = 0; // Om det är NaN, sätt det till 0
+            if (isNaN(kmB)) kmB = 0; // Om det är NaN, sätt det till 0
+
+            return kmB - kmA; // Sortera i fallande ordning (största först)
+        });
+
         const tableBody = document.getElementById("data");
         tableBody.innerHTML = ""; // Töm tabellen
 
+        // Skapa tabellrader
         data.forEach(row => {
             let name = row.Namn;
-            let km = parseFloat(row.Kilometer.replace(",", ".") || 0); // Konvertera text till flyttal (hanterar både punkt och komma)
+            let km = parseFloat(row.Kilometer.replace(",", ".") || 0); // Konvertera text till flyttal
 
             if (isNaN(km)) {
                 km = 0; // Om det är NaN, sätt det till 0
