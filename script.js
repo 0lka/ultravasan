@@ -1,5 +1,5 @@
 async function fetchSheetData() {
-    const sheetID = "1K8PnqG2LdiANzL-VXa6MxTa90dHj311Ch9bdyJiRYQA"; // Byt ut mot ditt ID
+    const sheetID = "1K8PnqG2LdiANzL-VXa6MxTa90dHj311Ch9bdyJiRYQA"; // Byt ut mot ditt Google Sheet ID
     const url = `https://opensheet.elk.sh/${sheetID}/1`; // Hämtar första fliken
 
     try {
@@ -11,8 +11,13 @@ async function fetchSheetData() {
 
         data.forEach(row => {
             let name = row.Namn;
-            let km = parseFloat(row.Kilometer || 0);
-            let percent = Math.min((km / 450) * 100, 100); // Max 100%
+            let km = parseFloat(row.Kilometer.replace(",", ".") || 0); // Konvertera text till flyttal (hanterar både punkt och komma)
+
+            if (isNaN(km)) {
+                km = 0; // Om det är NaN, sätt det till 0
+            }
+
+            let percent = Math.min((km / 450) * 100, 100); // Beräkna progress, max 100%
 
             // Status baserat på antal kilometer
             let status = "🚀 Nu kör vi!";
