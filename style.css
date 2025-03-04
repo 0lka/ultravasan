@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 20px;
+}
+
+h1 {
+    color: #ff6600;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #ff6600;
+    color: white;
+}
+
+.progress-container {
+    width: 100px;
+    height: 20px;
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #ff6600;
+    transition: width 0.5s ease-in-out;
+}
+
+.status {
+    font-weight: bold;
+}
