@@ -1,17 +1,3 @@
-// Funktion för att beräkna nedräkningen
-function updateCountdown() {
-    const targetDate = new Date('2025-08-16'); // Måldatum: 16 augusti 2025
-    const today = new Date();
-    
-    // Beräkna skillnaden mellan idag och måldatumet
-    const timeDiff = targetDate - today;
-    const daysLeft = Math.ceil(timeDiff / (1000 * 3600 * 24)); // Omvandla till dagar
-    
-    // Uppdatera nedräkningen på sidan
-    document.getElementById("countdown").textContent = `Dagar kvar till Ultravasan: ${daysLeft} dagar!`;
-}
-
-// Funktion för att hämta data från Google Sheets och fylla i tabellen
 async function fetchSheetData() {
     const sheetID = "1K8PnqG2LdiANzL-VXa6MxTa90dHj311Ch9bdyJiRYQA"; // Byt ut mot ditt Google Sheet ID
     const url = `https://opensheet.elk.sh/${sheetID}/1`; // Hämtar första fliken
@@ -71,6 +57,22 @@ async function fetchSheetData() {
     }
 }
 
-// Kör funktionerna när sidan laddas
+// Funktion för att beräkna nedräkningen
+function updateCountdown() {
+    const targetDate = new Date('2025-08-16'); // Måldatum: 16 augusti 2025
+    const today = new Date();
+    
+    // Beräkna skillnaden mellan idag och måldatumet
+    const timeDiff = targetDate - today;
+    const daysLeft = Math.ceil(timeDiff / (1000 * 3600 * 24)); // Omvandla till dagar
+    
+    // Uppdatera nedräkningen på sidan
+    document.getElementById("days-left").textContent = daysLeft;
+}
+
+// Kör funktionen för att uppdatera nedräkningen när sidan laddas
 updateCountdown();
+
+
+// Kör funktionen när sidan laddas
 fetchSheetData();
