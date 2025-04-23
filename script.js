@@ -34,7 +34,7 @@ async function fetchSheetData() {
             // Status baserat på antal kilometer
             let status = "🚀 Nu kör vi!";
             if (km >= 100) status = "🔥 Redan över 100 km!";
-            if (km >= 250) status = "💪 Halvvägs!";
+            if (km >= 225) status = "💪 Halvvägs!";
             if (km >= 400) status = "🎉 Snart framme!";
             if (km >= 450) status = "🏆 MÅL!";
 
