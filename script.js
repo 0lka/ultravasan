@@ -37,7 +37,7 @@ async function fetchSheetData() {
             if (km >= 150) status = "🏃‍➡️ Fortsätt kämpa!";
             if (km >= 225) status = "💪 Halvvägs!";
             if (km >= 300) status = "🤖 Maskin!";
-            if (km >= 350) statis = "💯 Sista 100!";
+            if (km >= 350) status = "💯 Sista 100!";
             if (km >= 400) status = "🎉 Snart framme!";
             if (km >= 450) status = "🏆 MÅL!";
 
