@@ -39,7 +39,7 @@ async function fetchSheetData() {
             if (km >= 300) status = "🤖 Maskin!";
             if (km >= 350) status = "💯 Sista 100!";
             if (km >= 400) status = "🎉 Snart framme!";
-            if (km >= 450) status = "🏆 MÅL!";
+            if (km >= 449) status = "🏆 MÅL!";
 
             // Skapa tabellrad
             let tr = document.createElement("tr");
